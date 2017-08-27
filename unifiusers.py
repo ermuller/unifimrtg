@@ -5,7 +5,8 @@
 
 # global predefines
 mibdir='/usr/local/share/snmp/mibs/'
-hosts=['unifi1.buh.org','unifi2.buh.org']
+hosts=['unifi1.example.org','unifi2.example.org']
+comm='yourmom'
 
 import time
 import logging, sys
@@ -34,11 +35,11 @@ def main():
   twousers=0
   for (host) in hosts:
     # foreach unifiVapEssId: unifiVapNumStations, unifiVapRadio...
-    #ssids = walk_ap_info(host, 'yourmom', 'unifiVapEssId')
+    #ssids = walk_ap_info(host, comm, 'unifiVapEssId')
     #print ssids 
-    users = walk_ap_info(host, 'yourmom', 'unifiVapNumStations')
+    users = walk_ap_info(host, comm, 'unifiVapNumStations')
     #print users
-    radios = walk_ap_info(host, 'yourmom', 'unifiVapRadio')
+    radios = walk_ap_info(host, comm, 'unifiVapRadio')
     #print radios
     for i in sorted(radios.keys()):
       count=int(users[i])
